@@ -28,39 +28,12 @@ namespace Ksis_labaratory_1
             //64 bytes for data
         }
 
-        // public ICMP(IN);
-
-
         public void SequenceNumber(byte[] icmpPackage, byte sequenceNumber)
         {
             icmpPackage[7] = sequenceNumber;
-
-            // byte[] bytes = BitConverter.GetBytes(icmpPackage[6]);
-            // Array.Reverse(bytes, 0, bytes.Length);
-
-            // icmpPackage[7] = (byte)BitConverter.ToInt16(bytes, 0);
-
             icmpPackage[6] = (byte)(sequenceNumber >> 8);
             
         }
-
-
-        // public void CheckSum(byte[] icmpPackage)
-        // {
-        //     UInt32 chcksm = 0;
-
-        //     int index = 0;
-
-        //     while (index < icmpPackage.Length)
-        //     {
-        //         chcksm += Convert.ToUInt32(BitConverter.ToUInt16(icmpPackage, index));
-        //         index += 2;
-        //     }
-        //     chcksm = (chcksm >> 16) + (chcksm & 0xffff);
-        //     chcksm += (chcksm >> 16);
-        //     icmpPackage[2] = (byte)chcksm;
-        // }
-
 
         public void CheckSum(byte[] icmpPackage)
         {
